@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { jqxBarGaugeComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxbargauge';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    jqxBarGaugeComponent
   ],
   imports: [
     BrowserModule,

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Dairy-Frontend';
+  values: number[] = [102, 115, 130, 137];
 }

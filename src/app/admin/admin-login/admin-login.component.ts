@@ -7,7 +7,7 @@ import { jqxFormComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxform
   styleUrls: ['./admin-login.component.scss']
 })
 export class AdminLoginComponent implements OnInit, AfterViewInit {
-
+  public loginType = "admin";
 
   ngOnInit() {
 

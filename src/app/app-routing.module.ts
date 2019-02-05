@@ -17,11 +17,14 @@ const routes: Routes = [
   {
     path: "farmer",
     loadChildren: "./farmer/farmer.module#FarmerModule"
-  }
+  },
+  { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
+  { path: '**', redirectTo: 'not-found' },
+  { path: '**/**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ useHash:true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

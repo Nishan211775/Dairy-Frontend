@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./farmer-login.component.scss']
 })
 export class FarmerLoginComponent implements OnInit {
+  public loginType = "farmer";
 
   constructor() { }
 

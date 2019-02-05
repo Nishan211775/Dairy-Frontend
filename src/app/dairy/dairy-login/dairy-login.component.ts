@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dairy-login.component.scss']
 })
 export class DairyLoginComponent implements OnInit {
+  public loginType = "dairy";
 
   constructor() { }
 

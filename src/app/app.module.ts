@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/module/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,10 +12,14 @@ import { SharedModule } from './shared/module/shared.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: 'API_ROOT_URL', useValue: 'http://nishandhungana41-001-site1.etempurl.com/' },
+    { provide: 'API_URL', useValue: 'http://nishandhungana41-001-site1.etempurl.com/api/' },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

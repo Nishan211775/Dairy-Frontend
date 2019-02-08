@@ -1,1 +1,23 @@
-<app-login [type]="loginType"></app-login>
+<app-login [type]="loginType" (messageEvent)="receiveMessage($event)" (loginCredentialEvent)="receiveLoginCredentialEvent($event)"></app-login>
+
+<jqxLoader #jqxLoader           
+           [imagePosition]="'top'"
+           [width]="100"
+           [height]="60">
+</jqxLoader>
+
+<jqxNotification #successNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'success'">
+  <div>
+    Login Successfull
+  </div>
+</jqxNotification>
+
+<jqxNotification #errorNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'error'">
+  <div>
+    Invalid Credential
+  </div>
+</jqxNotification>

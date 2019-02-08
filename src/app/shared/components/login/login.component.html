@@ -6,28 +6,28 @@
             </div>
             <div class="form-container" style="background:#e0eaf5 !important;border:1px solid #a8bace !important;">
                 <img src="assets/images/logo.png" width="150px" class="user-avatar" />
-                <form role="form" name="loginForm">
+                <form role="form" name="loginForm" [formGroup]="loginForm">
                     <div class="form-content">
-                        <!-- <div class="row" *ngIf="msgText">
+                        <div class="row" *ngIf="msgText">
                             <div class="alert alert-danger" role="alert" style="padding:0.2rem !important; text-align: center; width: 100%;">
                                 <p style="margin-bottom: 0rem;font-size: 0.8rem;"> {{ msgText }}</p>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="form-group row">
                             <label for="userName" class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9" style="text-align: left;">
-                                <jqxInput #username class="name" [height]="23" [width]="200">
+                                <jqxInput formControlName="Username" #username class="name" [height]="23" [width]="200">
                                 </jqxInput>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="userPassword" class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9" style="text-align: left;">
-                                <jqxPasswordInput #password class="password" [height]="23" [width]="200"></jqxPasswordInput>
+                                <jqxPasswordInput formControlName="Password" #password class="password" [height]="23" [width]="200"></jqxPasswordInput>
                             </div>
                         </div>
                     </div>
-                    <jqxButton style="margin-right: 5px;" [width]="100" [theme]="'energyblue'">
+                    <jqxButton (click)="login(loginForm.value)" [disabled]="!loginForm.valid" style="margin-right: 5px;" [width]="100" [theme]="'energyblue'">
                         Login
                     </jqxButton>
                 </form>
@@ -35,6 +35,3 @@
         </div>
     </div>
 </div>
-
-<jqxLoader #loginLoader [imagePosition]="'top'" [width]="100" [text]="'Logging in..'" [textPosition]="'bottom'" [height]="60" [isModal]="true" [theme]="'energyblue'">
-</jqxLoader>

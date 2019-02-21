@@ -11,6 +11,10 @@ const routes: Routes = [
     path: "dairy-dashboard",
     loadChildren: "./dairy-dashboard/dairy-dashboard.module#DairyDashboardModule",
     canActivate: [AuthGuard]
+  },
+  {
+    path: "dairy-register",
+    loadChildren: "./dairy-register/dairy-register.module#DairyRegisterModule",
   }
 ];
 

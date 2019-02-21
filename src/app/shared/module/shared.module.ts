@@ -29,6 +29,7 @@ import { jqxTabsComponent}  from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxtabs
 import { jqxLayoutComponent}  from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxlayout';
 import { jqxFormComponent}  from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxform';
 import { LoginComponent } from '../components/login/login.component';
+import { AdminNavbarComponent } from 'src/app/admin/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -58,11 +59,12 @@ import { LoginComponent } from '../components/login/login.component';
       jqxTabsComponent,
       jqxLayoutComponent,
       jqxFormComponent,
-      LoginComponent
+      LoginComponent,
+      AdminNavbarComponent
   ],
   imports: [ 
     CommonModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
    ],
   providers: [
@@ -70,6 +72,7 @@ import { LoginComponent } from '../components/login/login.component';
    ],
   exports: [
     FormsModule,
+    AdminNavbarComponent,
     CommonModule,
     ReactiveFormsModule,
     jqxPanelComponent,

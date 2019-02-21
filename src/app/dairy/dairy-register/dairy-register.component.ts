@@ -13,8 +13,8 @@ export class DairyRegisterComponent implements OnInit {
 
   public dairyRegisterForm: FormGroup;
   @ViewChild("notification") notification: jqxNotificationComponent;
+  @ViewChild("sucNotification") sucNotification: jqxNotificationComponent;
   @ViewChild("jqxLoader") jqxLoader: jqxLoaderComponent;
-  public message: string = "";
 
   constructor(
     private fb: FormBuilder,
@@ -39,16 +39,22 @@ export class DairyRegisterComponent implements OnInit {
     });
   }
 
+  get form() { return this.dairyRegisterForm.controls }
+  get address() { return this.dairyRegisterForm.controls.address["controls"] }
+
   requestForRegistration(value) {
     this.jqxLoader.open();
     this.ds.addNewDairy(value).subscribe(res => {
       this.jqxLoader.close();
-      this.message = "Requested for activation.";
-      this.notification.open();
+      this.dairyRegisterForm.reset();
+      let messageDiv: any = document.getElementById("sucMes");
+      messageDiv.innerText = "Requested for activation.";
+      this.sucNotification.open();
     }, error => {
       console.log(error);
       this.jqxLoader.close();
-      this.message = "Something went wrong please try again!";
+      let messageDiv: any = document.getElementById("errMess");
+      messageDiv.innerText = "Something went wrong please try again!";
       this.notification.open();
     });
   }

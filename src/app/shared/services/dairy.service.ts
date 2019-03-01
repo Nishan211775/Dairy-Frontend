@@ -19,11 +19,39 @@ export class DairyService {
     this.apiUrl = apiUrl;
   }
 
+  //admin
   public addNewDairy(value) {
     return this.http.post(this.apiUrl + "dairy", value)
       .pipe(
         map(success => success),
         catchError(this.hes.handleError) // then handle the error
+      );
+  }
+
+  //admin
+  public getAllRequestedDairy(page, pageSize) {
+    return this.http.get(this.apiUrl + "dairy/requested-dairy/" + page + "/" + pageSize)
+      .pipe(
+        map(success => success),
+        catchError(this.hes.handleError)
+      );
+  }
+
+  //dairy
+  public getRequestedDairyCount() {
+    return this.http.get(this.apiUrl + "dairy/requested-dairy-count")
+      .pipe(
+        map(success => success),
+        catchError(this.hes.handleError)
+      );
+  }
+
+  //admin
+  public acceptDairyRequest(value) {
+    return this.http.post(this.apiUrl + "account/accept-requested-dairy", value)
+      .pipe(
+        map(success => success),
+        catchError(this.hes.handleError)
       );
   }
 }

@@ -1,0 +1,118 @@
+<app-dairy-navbar></app-dairy-navbar>
+<div class="container">
+  <div class="wrap-content row">
+    <form [formGroup]="memberForm" name="memberForm">
+      <fieldset class="form-group" style="margin:0; padding:10px;">
+        <legend>Registration Form</legend>
+
+        <div class="alert alert-secondary">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum.
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <label for="project" class="required">First Name:</label>
+            <label *ngIf="form.firstName.invalid && (form.firstName.dirty || form.firstName.touched)">
+              <span *ngIf="form.firstName.errors.required" class="error">
+                Firstname is required
+              </span>
+            </label>
+            <input type="text" formControlName="firstName" class="form-control" placeholder="first name">
+          </div>
+
+          <div class="col-lg-4">
+            <label for="project" class="required">Middle Name:</label>
+            <label *ngIf="form.middleName.invalid && (form.middleName.dirty || form.middleName.touched)">
+              <span *ngIf="form.middleName.errors.required" class="error">
+                Middle name is required
+              </span>
+            </label>
+            <input type="text" formControlName="middleName" class="form-control" placeholder="middle name">
+          </div>
+
+          <div class="col-lg-4">
+            <label for="middleName" class="required">Last Name:</label>
+            <label *ngIf="form.lastName.invalid && (form.lastName.dirty || form.lastName.touched)">
+              <span *ngIf="form.lastName.errors.required" class="error">
+                Last name is required
+              </span>
+            </label>
+            <input type="text" formControlName="lastName" class="form-control" placeholder="last name">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="middleName" class="required">Contact:</label>
+            <label *ngIf="form.contact.invalid && (form.contact.dirty || form.contact.touched)">
+              <span *ngIf="form.contact.errors.required" class="error">
+                Contact is required
+              </span>
+            </label>
+            <input type="text" formControlName="contact" class="form-control" placeholder="contact">
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="middleName" class="required">Member Type:</label>
+            <label *ngIf="form.memberTypeId.invalid && (form.memberTypeId.dirty || form.memberTypeId.touched)">
+              <span *ngIf="form.memberTypeId.errors.required" class="error">
+                Member type is required
+              </span>
+            </label>
+            <input type="text" formControlName="memberTypeId" class="form-control" placeholder="contact">
+          </div>
+
+          <div class="col-lg-6"></div>
+
+          <hr />
+
+          <div class="row" formGroupName="address" style="width: 100%;margin-left: 1px;">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+              <label for="middleName" class="required">Street:</label>
+              <label *ngIf="address.street.invalid && (address.street.dirty || address.street.touched)">
+                <span *ngIf="address.street.errors.required" class="error">
+                  Street is required
+                </span>
+              </label>
+              <input type="text" formControlName="street" class="form-control" placeholder="street">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+              <label for="middleName" class="required">City/Town:</label>
+              <label *ngIf="address.city.invalid && (address.city.dirty || address.city.touched)">
+                <span *ngIf="address.city.errors.required" class="error">
+                  City/Town is required
+                </span>
+              </label>
+              <input type="text" formControlName="city" class="form-control" placeholder="city/town">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+              <label for="middleName" class="required">State/Provience:</label>
+              <label *ngIf="address.state.invalid && (address.state.dirty || address.state.touched)">
+                <span *ngIf="address.state.errors.required" class="error">
+                  State/Provience is required
+                </span>
+              </label>
+              <input type="text" formControlName="state" class="form-control" placeholder="state">
+            </div>
+          </div>
+
+          <div class="col-md-12 text-center">
+            <jqxButton #loginButton [disabled]="!memberForm.valid" style="margin-right: 10px;" [width]='80'
+              [height]='28' (onClick)="addMember(memberForm.value)">
+              Add
+            </jqxButton>
+            <jqxButton #cancelButton (onClick)="cancel()" [width]='80' [height]='28'>
+              Cancel
+            </jqxButton>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

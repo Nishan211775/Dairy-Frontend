@@ -63,7 +63,6 @@ export class LoginComponent implements OnInit {
 
     this.http.post<T>(this.apiUrl + "connect/token", requestBody, { headers: header }).subscribe(
       res => {
-        console.log(res);        
         this.messageEvent.emit("false");
         this.loginCredentialEvent.emit("true");
 
@@ -72,19 +71,19 @@ export class LoginComponent implements OnInit {
 
         if (this.type == "admin") {
           redirectUrl = "/admin/admin-dashboard";
-          sessionStorage.setItem("admin-token", JSON.stringify(res));
+          sessionStorage.setItem("token", JSON.stringify(res));
 
         } else if(this.type == "farmer") {
           redirectUrl = "/farmer/farmer-dashboard";
-          sessionStorage.setItem("farmer-token", JSON.stringify(res));
+          sessionStorage.setItem("token", JSON.stringify(res));
 
         } else if(this.type == "dairy") {
           redirectUrl = "/dairy/dairy-dashboard";
-          sessionStorage.setItem("dairy-token", JSON.stringify(res));
+          sessionStorage.setItem("token", JSON.stringify(res));
 
         } else if(this.type == "master-dairy") {
           redirectUrl = "/master-dairy/master-dairy-dashboard";
-          sessionStorage.setItem("master-dairy-token", JSON.stringify(res));
+          sessionStorage.setItem("token", JSON.stringify(res));
         }
 
         this.router.navigate([redirectUrl]);

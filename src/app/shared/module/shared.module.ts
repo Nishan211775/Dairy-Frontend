@@ -30,6 +30,8 @@ import { jqxLayoutComponent}  from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxla
 import { jqxFormComponent}  from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxform';
 import { LoginComponent } from '../components/login/login.component';
 import { AdminNavbarComponent } from 'src/app/admin/admin-navbar/admin-navbar.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { DairyNavbarComponent } from 'src/app/dairy/dairy-navbar/dairy-navbar.component';
 
 @NgModule({
   declarations: [
@@ -60,12 +62,14 @@ import { AdminNavbarComponent } from 'src/app/admin/admin-navbar/admin-navbar.co
       jqxLayoutComponent,
       jqxFormComponent,
       LoginComponent,
-      AdminNavbarComponent
+      AdminNavbarComponent,
+      DairyNavbarComponent
   ],
   imports: [ 
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule
    ],
   providers: [
     
@@ -73,8 +77,10 @@ import { AdminNavbarComponent } from 'src/app/admin/admin-navbar/admin-navbar.co
   exports: [
     FormsModule,
     AdminNavbarComponent,
+    DairyNavbarComponent,
     CommonModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     jqxPanelComponent,
     jqxInputComponent,
     jqxTextAreaComponent,

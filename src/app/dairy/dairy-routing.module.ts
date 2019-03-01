@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: "dairy-register",
     loadChildren: "./dairy-register/dairy-register.module#DairyRegisterModule",
+  },
+  {
+    path: "members",
+    loadChildren: "./members/members.module#MembersModule"
   }
 ];
 

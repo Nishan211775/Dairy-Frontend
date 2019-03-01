@@ -1,0 +1,24 @@
+.row > ul > li {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.row > ul > li > span {
+    font-weight: normal;
+}
+
+fieldset {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #1C5FA1;
+    border-radius: 3px;
+  }
+  
+  legend {
+    width: auto;
+    margin: 0px 15px;
+    padding: 0px 5px 5px;
+    border: medium none;
+    color: #062645;
+    font-size: 12px;
+  }

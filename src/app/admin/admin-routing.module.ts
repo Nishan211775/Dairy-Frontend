@@ -11,6 +11,11 @@ const routes: Routes = [
     path: "admin-dashboard",
     loadChildren: "./admin-dashboard/admin-dashboard.module#AdminDashboardModule",
     canActivate: [AuthGuard]
+  },
+  {
+    path: "requested-dairy",
+    loadChildren: "./requested-dairy/requested-dairy.module#RequestedDairyModule",
+    canActivate: [AuthGuard]
   }
 ];
 

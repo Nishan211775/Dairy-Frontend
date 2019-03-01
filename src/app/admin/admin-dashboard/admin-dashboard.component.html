@@ -1,8 +1,8 @@
 <app-admin-navbar></app-admin-navbar>
 <div class="container">
-    <div class="row">
+  <div class="row">
     <div class="col-md-3">
-      <div class="card-counter primary">
+      <div class="card-counter primary" [routerLink]="['/admin/requested-dairy']" routerLinkActive="router-link-active" >
         <i class="fa fa-code-fork"></i>
         <span class="count-numbers">12</span>
         <span class="count-name">Flowz</span>
@@ -32,5 +32,9 @@
         <span class="count-name">Users</span>
       </div>
     </div>
+  </div>
+
+  <div class="row">
+    
   </div>
 </div>

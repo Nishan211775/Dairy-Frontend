@@ -4,11 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/module/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { HomeComponent } from './shared/components/home/home.component';
 import { DairyService } from './shared/services/dairy.service';
 import { HandleErrorService } from './shared/services/handle-error.service';
+import { MyInterceptorService } from './shared/services/my-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,11 @@ import { HandleErrorService } from './shared/services/handle-error.service';
     // { provide: 'API_URL', useValue: 'http://nishandhungana41-001-site1.etempurl.com/api/' },
     { provide: 'API_ROOT_URL', useValue: 'https://localhost:44336/' },
     { provide: 'API_URL', useValue: 'https://localhost:44336/api/' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptorService,
+      multi: true,
+    },
     HandleErrorService,
     DairyService
   ],

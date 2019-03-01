@@ -1,0 +1,100 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+
+    <div class="alert alert-secondary">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+      </div>
+
+  <jqxGrid #grid [width]="'100%'" [source]="dataAdapter" [columns]="columns"
+    (onPageChanged)="tableonPageChanged($event)" [sortable]="true" [pageable]="true" [autoheight]="true"
+    [filterable]="true">
+  </jqxGrid>
+</div>
+
+<!-- <div>
+  <p *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">{{ item }}</p>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div> -->
+
+<jqxWindow #window [width]="'60%'" [showCollapseButton]="false" [isModal]="true" [showCloseButton]="true"
+  [autoOpen]="false">
+  <div #windowHeader>
+    Dairy Details
+  </div>
+  <div #windowContent style="padding: 25px;">
+    <div class="row">
+      <ul style="list-style-type:none;">
+        <li>Dairy Name: <span>{{rowData && rowData["name"]}}</span></li>
+        <li>Contact: <span>{{rowData && rowData["contact"]}}</span></li>
+        <li>Email: <span>{{rowData && rowData["email"]}}</span></li>
+        <li>Website: <span>{{rowData && rowData["website"]}}</span></li>
+        <li>Added Date: <span>{{rowData && rowData["addedDate"]}}</span></li>
+        <li>Address: <span>Panchkhal-7 Hokse Kavre</span></li>
+      </ul>
+    </div>
+    <div class="row">
+      <fieldset>
+        <legend>Add Username and Password for this dairy</legend>
+        <form [formGroup]="credential">
+          <div class="row p-1 row-body">
+            <div class="col-md-4">
+              <label>Username</label>
+              <label *ngIf="form.username.invalid && (form.username.dirty || form.username.touched)">
+                <span *ngIf="form.username.errors.required" class="error">
+                  Username is required
+                </span>
+              </label>
+              <input type="text" formControlName="username">
+            </div>
+            <div class="col-md-4">
+              <label>Password</label>
+              <label *ngIf="form.password.invalid && (form.password.dirty || form.password.touched)">
+                <span *ngIf="form.password.errors.required" class="error">
+                  Password is required
+                </span>
+              </label>
+              <input type="text" formControlName="password">
+            </div>
+            <div class="col-md-4">
+              <jqxButton [disabled]="!credential.valid" #approveButton style="margin-right: 10px;" [width]='80'
+                [height]='28' (onClick)="approveDairy(credential.value)">
+                Approve
+              </jqxButton>
+              <jqxButton #declineButton style="margin-right: 10px;" [width]='80' [height]='28'
+                (onClick)="declineDairy()">
+                Decline
+              </jqxButton>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+</jqxWindow>
+
+<jqxLoader #jqxLoader           
+           [imagePosition]="'top'"
+           [width]="100"
+           [height]="60">
+</jqxLoader>
+
+<jqxNotification #successNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'success'">
+  <div>
+    Dairy request accept
+  </div>
+</jqxNotification>
+
+<jqxNotification #errorNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'error'">
+  <div>
+    Cann't done the process.
+  </div>
+</jqxNotification>

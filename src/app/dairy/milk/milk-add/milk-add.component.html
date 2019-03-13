@@ -1,0 +1,69 @@
+<app-dairy-navbar></app-dairy-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="alert alert-secondary">
+        <label><b>Today's Date</b>: {{todayNepaliDate['ne']['year']}} {{todayNepaliDate['ne']['strMonth']}}
+          {{todayNepaliDate['ne']['day']}}, {{todayNepaliDate['ne']['strDayOfWeek']}}
+        </label>
+      </div>
+      <form [formGroup]="milkForm">
+        <table border="1" style="width: 100%;">
+          <thead>
+            <tr class="head">
+              <td>S.N.</td>
+              <td>Can No</td>
+              <td>Name</td>
+              <td>Milk</td>
+              <td>Fat</td>
+            </tr>
+          </thead>
+          <tbody formArrayName="milk">
+            <tr *ngFor="let item of milkForm.get('milk')['controls']; let i = index" [formGroupName]="i">
+              <td>{{i+1}}</td>
+              <td style="width: 70px;">{{farmersList[i]['canId']}}</td>
+              <td>{{farmersList[i]['firstName']}}</td>
+              <td style="width: 70px;"><input formControlName="milk" type="number"></td>
+              <td style="width: 70px;"><input formControlName="fat" type="number" max="10"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="text-right" style="margin-top: 20px">
+          <jqxButton style="margin-right: 10px;" [width]='80' [height]='28' (onClick)="save(milkForm.value)">
+            Save
+          </jqxButton>
+          <jqxButton (click)="cancel()" [width]='80' [height]='28'>
+            Cancel
+          </jqxButton>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <strong>Second Div</strong>
+      <np-datepicker></np-datepicker>
+    </div>
+  </div>
+</div>
+
+<jqxLoader #jqxLoader           
+           [imagePosition]="'top'"
+           [width]="100"
+           [height]="60">
+</jqxLoader>
+
+<jqxNotification #successNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'success'">
+  <div id="success">
+    
+  </div>
+</jqxNotification>
+
+<jqxNotification #errorNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'error'">
+  <div id="error">
+    
+  </div>
+</jqxNotification>

@@ -60,3 +60,23 @@
     display: block;
     font-size: 18px;
   }
+
+.row {
+  padding-top: 25px;
+}
+
+.border  {
+  padding: 5px;
+  border: 1px solid black !important;
+}
+
+.edit {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.edit:hover {
+  cursor: pointer;
+  color: blueviolet;
+}

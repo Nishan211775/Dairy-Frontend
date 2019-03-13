@@ -9,19 +9,19 @@
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" [routerLink]="['/dairy/farmers/view']" routerLinkActive="router-link-active">
       <div class="card-counter danger">
         <i class="fa fa-ticket"></i>
         <span class="count-numbers">599</span>
-        <span class="count-name">Instances</span>
+        <span class="count-name">Farmers</span>
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" [routerLink]="['/dairy/milk/add']" routerLinkActive="router-link-active" >
       <div class="card-counter success">
         <i class="fa fa-database"></i>
         <span class="count-numbers">6875</span>
-        <span class="count-name">Data</span>
+        <span class="count-name">Milk</span>
       </div>
     </div>
 
@@ -35,6 +35,51 @@
   </div>
 
   <div class="row">
-    
+    <div class="border col-md-5 col-sm-12">
+      <div class="alert alert-secondary">
+        <a (click)="edit()" class="edit">edit</a>
+        <label><b>Current Price: </b>Rs: {{price && price['price']}}</label><br>
+        <label><b>Started From: </b>{{price && price['startDate'] | date: 'yyyy-MM-dd'}}</label>
+      </div>
+      <form [formGroup]="milkPriceForm">
+        <table style="width: 100%;">
+          <tr>
+            <td><label>Price/Fat</label></td>
+            <td><input type="number" formControlName="price"></td>
+          </tr>
+          <tr>
+            <td><label>Date</label></td>
+            <td>
+              <np-datepicker #todayDate *ngIf="!isUpdate" formControlName="startDate" monthDisplayType="modern"></np-datepicker>
+            </td>
+          </tr>
+        </table>
+        <button *ngIf="!isUpdate" (click)="go(milkPriceForm.value)">Add</button>
+        <button *ngIf="isUpdate" (click)="update(milkPriceForm.value)">Update</button>
+        <button *ngIf="isUpdate" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
   </div>
 </div>
+
+<jqxLoader #jqxLoader           
+           [imagePosition]="'top'"
+           [width]="100"
+           [height]="60">
+</jqxLoader>
+
+<jqxNotification #successNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'success'">
+  <div id="success">
+    
+  </div>
+</jqxNotification>
+
+<jqxNotification #errorNotification
+                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'error'">
+  <div id="error">
+    
+  </div>
+</jqxNotification>

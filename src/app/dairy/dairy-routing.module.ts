@@ -19,6 +19,14 @@ const routes: Routes = [
   {
     path: "members",
     loadChildren: "./members/members.module#MembersModule"
+  },
+  {
+    path: "farmers",
+    loadChildren: "./farmers/farmers.module#FarmersModule"
+  },
+  {
+    path: "milk",
+    loadChildren: "./milk/milk.module#MilkModule"
   }
 ];
 

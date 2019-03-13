@@ -33,6 +33,8 @@ import { AdminNavbarComponent } from 'src/app/admin/admin-navbar/admin-navbar.co
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DairyNavbarComponent } from 'src/app/dairy/dairy-navbar/dairy-navbar.component';
 
+import { NpDatepickerModule } from 'angular-nepali-datepicker';
+
 @NgModule({
   declarations: [
       jqxPanelComponent,
@@ -69,7 +71,8 @@ import { DairyNavbarComponent } from 'src/app/dairy/dairy-navbar/dairy-navbar.co
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NpDatepickerModule
    ],
   providers: [
     
@@ -81,6 +84,7 @@ import { DairyNavbarComponent } from 'src/app/dairy/dairy-navbar/dairy-navbar.co
     CommonModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    NpDatepickerModule,
     jqxPanelComponent,
     jqxInputComponent,
     jqxTextAreaComponent,

@@ -1,7 +1,7 @@
 <app-dairy-navbar></app-dairy-navbar>
 <div class="container">
   <div class="wrap-content row">
-    <form [formGroup]="memberForm" name="memberForm">
+    <form [formGroup]="farmerForm" name="farmerForm">
       <fieldset class="form-group" style="margin:0; padding:10px;">
         <legend>Registration Form</legend>
 
@@ -57,18 +57,14 @@
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <label for="middleName" class="required">Member Type:</label>
-            <label *ngIf="form.memberTypeId.invalid && (form.memberTypeId.dirty || form.memberTypeId.touched)">
-              <span *ngIf="form.memberTypeId.errors.required" class="error">
-                Member type is required
+            <label for="middleName" class="required">Can No.:</label>
+            <label *ngIf="form.canId.invalid && (form.canId.dirty || form.canId.touched)">
+              <span *ngIf="form.canId.errors.required" class="error">
+                can no is required
               </span>
             </label>
-            <select formControlName="memberTypeId" class="form-control">
-              <option value="" [selected]>--select an item--</option>
-              <option *ngFor="let item of memberTypes" value="{{item['id']}}">{{item['memberType']}}</option>
-            </select>
 
-            <!-- <input type="text" formControlName="memberTypeId" class="form-control" placeholder="contact"> -->
+            <input type="text" formControlName="canId" class="form-control" placeholder="can id">
           </div>
 
           <div class="col-lg-6"></div>
@@ -108,8 +104,8 @@
           </div>
 
           <div class="col-md-12 text-center">
-            <jqxButton #loginButton [disabled]="!memberForm.valid" style="margin-right: 10px;" [width]='80'
-              [height]='28' (onClick)="addMember(memberForm.value)">
+            <jqxButton #loginButton [disabled]="!farmerForm.valid" style="margin-right: 10px;" [width]='80'
+              [height]='28' (onClick)="addMember(farmerForm.value)">
               Add
             </jqxButton>
             <jqxButton #cancelButton (onClick)="cancel()" [width]='80' [height]='28'>

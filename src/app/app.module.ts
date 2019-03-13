@@ -10,6 +10,11 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { DairyService } from './shared/services/dairy.service';
 import { HandleErrorService } from './shared/services/handle-error.service';
 import { MyInterceptorService } from './shared/services/my-interceptor.service';
+import { MembersService } from './shared/services/members.service';
+import { FarmersService } from './shared/services/farmers.service';
+import { MilkPriceService } from './shared/services/milk-price.service';
+import { DashboardService } from './shared/services/dashboard.service';
+import { MilkService } from './shared/services/milk.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { MyInterceptorService } from './shared/services/my-interceptor.service';
       multi: true,
     },
     HandleErrorService,
-    DairyService
+    DairyService,
+    MembersService,
+    FarmersService,
+    MilkPriceService,
+    DashboardService,
+    MilkService
   ],
   bootstrap: [AppComponent],
 })

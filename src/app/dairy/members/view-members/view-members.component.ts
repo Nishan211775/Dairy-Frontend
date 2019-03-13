@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MembersService } from 'src/app/shared/services/members.service';
 
 @Component({
   selector: 'app-view-members',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewMembersComponent implements OnInit {
 
-  constructor() { }
+  public memberList: any;
+
+  constructor(
+    private ms: MembersService
+  ) { }
 
   ngOnInit() {
+    this.getMembersByDairy();
+  }
+
+  private getMembersByDairy() {
+    this.ms.getMembers().subscribe(res => {
+      this.memberList = res;
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

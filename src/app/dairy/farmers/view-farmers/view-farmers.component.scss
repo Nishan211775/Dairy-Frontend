@@ -1,0 +1,17 @@
+.card-body > img {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 90px;
+    height: 90px;
+    border: 1px solid darkred;
+}
+
+.row > ul > li {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.row > ul > li > span {
+    font-weight: normal;
+}

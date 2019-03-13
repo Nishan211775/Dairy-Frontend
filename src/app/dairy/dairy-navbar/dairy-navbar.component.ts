@@ -28,7 +28,7 @@ export class DairyNavbarComponent implements OnInit {
   logout() {
     if (confirm("Are you sure?")) {
       sessionStorage.clear();
-      this.router.navigate(['/admin/admin-login']);
+      this.router.navigate(['/dairy/dairy-login']);
     }
   }
 }
